@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/sayuru-akash/laravel-document-library">
+  <a href="https://github.com/sayuru-akash/laravel-document-library/">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -21,7 +21,7 @@
   <p align="center">
     An e-library website to display approved documents for Institutes, made with Laravel.
     <br />
-    <a href="https://github.com/sayuru-akash/laravel-document-library"><strong>Explore the project »</strong></a>
+    <a href="https://github.com/sayuru-akash/laravel-document-library/"><strong>Explore the project »</strong></a>
     <br />
   </p>
 </div>
