@@ -157,7 +157,7 @@ Project Link: [https://github.com/sayuru-akash/laravel-document-library](https:/
 [issues-shield]: https://img.shields.io/github/issues/sayuru-akash/laravel-document-library.svg?style=for-the-badge
 [issues-url]: https://github.com/sayuru-akash/laravel-document-library/issues
 [license-shield]: https://img.shields.io/github/license/sayuru-akash/laravel-document-library.svg?style=for-the-badge
-[license-url]: https://github.com/sayuru-akash/laravel-document-library/blob/master/LICENSE
+[license-url]: https://github.com/sayuru-akash/laravel-document-library/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/sayuru_akash
 [product-screenshot]: images/screenshot.png
