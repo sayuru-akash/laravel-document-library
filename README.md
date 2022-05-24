@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/sayuru-akash/laravel-document-library">
+  <a href="https://github.com/sayuru-akash/laravel-document-library/">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
