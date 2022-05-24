@@ -1,4 +1,4 @@
-/* Generated on: Sun Mar 06 2022 11:38:00 GMT+0000 (Coordinated Universal Time) */
+/* Generated on: Wed Mar 16 2022 19:52:37 GMT+0000 (Coordinated Universal Time) */
 /* ==========================================================================
    normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css 
    ========================================================================== */
@@ -244,6 +244,20 @@
 
 .bold-text {
   color: #fff;
+}
+
+.heading-4 {
+  color: #000;
+  font-size: 36px;
+  text-align: center;
+}
+
+.heading-5 {
+  margin-top: 0px;
+  color: #7e7575;
+  font-size: 20px;
+  line-height: 18px;
+  text-align: center;
 }
 
 @media screen and (max-width: 991px) {

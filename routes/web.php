@@ -18,13 +18,18 @@ use App\Http\Controllers\EssayController;
 //     return view('welcome');
 // });
 
-Route::get('/add-essay',[EssayController::class,'addEssay']);
-Route::get('/view-essay-approve',[EssayController::class,'getEssay']);
+Route::get('/add-document',[EssayController::class,'addEssay']);
+Route::get('/admin',[EssayController::class,'getEssay']);
 Route::post('/create-essay',[EssayController::class,'createEssay'])->name('essay.add');
 Route::get('/essay-approval/{id}',[EssayController::class,'getEssayByID']);
 Route::get('/search',[EssayController::class,'searchEssay'])->name('essay.search');
 Route::get('/',[EssayController::class,'getEssayApproved']);
-Route::get('/view-approved-essay/{id}',[EssayController::class,'getEssayApprovedByID']);
+Route::get('/view-document/{id}',[EssayController::class,'getEssayApprovedByID']);
 Route::get('/delete-essay/{id}',[EssayController::class,'deleteEssay']);
 Route::get('/approve-essay/{id}',[EssayController::class,'approveEssay']);
 
+Route::get('/login', function () {
+    return view('/login');
+});
+Route::get('/logout',[EssayController::class,'logout']);
+Route::post('/login/addCredentials', [EssayController::class,'addCredentials'])->name('certificate.login');

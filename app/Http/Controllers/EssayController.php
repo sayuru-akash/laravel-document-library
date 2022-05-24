@@ -16,6 +16,22 @@ class EssayController extends Controller
 
     public function createEssay(Request $request)
     {
+        if ($request['project_name'] == null){
+            return redirect()->back()->with('essay_not_added', 'Please enter the project name');
+        }
+        if ($request['student_id'] == null){
+            return redirect()->back()->with('essay_not_added', 'Please enter the student id');
+        }
+        if ($request['student_name'] == null){
+            return redirect()->back()->with('essay_not_added', 'Please enter the student name');
+        }
+        if ($request['file_code'] == null){
+            return redirect()->back()->with('essay_not_added', 'Please enter the gdrive file code');
+        }
+        if ($request['post_image'] == null){
+            return redirect()->back()->with('essay_not_added', 'Please upload the cover image');
+        }
+
         $validate = $request->validate([
             'project_name' => 'required',
             'student_id' => 'required',
@@ -55,8 +71,17 @@ class EssayController extends Controller
     }
     public function getEssay()
     {
+        $auth = resolve('littlegatekeeper');
+
+        if($auth->isAuthenticated())
+        {
         $essays = Essay::orderBy('id','DESC')->where('isapproved','=',0)->get();
         return view('view-essay',compact('essays'));
+        }
+        else
+        {
+            return Redirect::to('/login');
+        }
     }
 
     public function getEssayApproved()
@@ -67,8 +92,17 @@ class EssayController extends Controller
 
     public function getEssayByID($id)
     {
+        $auth = resolve('littlegatekeeper');
+
+        if($auth->isAuthenticated())
+        {
         $essay = Essay::where('id',$id)->first();
         return view('essay-approval',compact('essay'));
+        }
+        else
+        {
+            return Redirect::to('/login');
+        }
     }
     public function getEssayApprovedByID($id)
     {
@@ -77,22 +111,81 @@ class EssayController extends Controller
     }
     public function deleteEssay($id)
     {
+        $auth = resolve('littlegatekeeper');
+
+        if($auth->isAuthenticated())
+        {
         Essay::where('id',$id)->delete();
-        return Redirect('view-essay')->with('essay-deleted','Essay Rejected Successfully');
+        return Redirect('admin')->with('essay-deleted','Essay Rejected Successfully');
+        }
+        else
+        {
+            return Redirect::to('/login');
+        }
     }
 
     public function searchEssay(Request $request)
     {
-        $essay= Essay::where('stdid','=',$request->search)->get();
+        $auth = resolve('littlegatekeeper');
+
+        if($auth->isAuthenticated())
+        {
+        $essay= Essay::where('student_id','=',$request->search)->get();
         return view('view-essay',['essays'=>$essay]);
+        }
+        else
+        {
+            return Redirect::to('/login');
+        }
     }
 
 
     public function approveEssay($id)
     {
+        $auth = resolve('littlegatekeeper');
+
+        if($auth->isAuthenticated())
+        {
         $essay = Essay::find($id);
         $essay->isapproved = 1;
         $essay->save();
-        return Redirect('view-essay-approved')->with('essay-Approved','Essay Published');
+        return Redirect('admin')->with('essay-Approved','Essay Published');
+        }
+        else
+        {
+            return Redirect::to('/login');
+        }
+    }
+
+    public function addCredentials(Request $request)
+    {
+
+        $auth = resolve('littlegatekeeper');
+
+        $loginSuccess = $auth->attempt($request->only([
+            'username',
+            'password'
+        ]));
+
+        if ($loginSuccess) {
+            return redirect('/admin')->with('success', 'Thank You for authorizing. Please proceed.');
+        }
+        else{
+            return redirect('/login')->with('error', 'You entered the wrong credentials');
+        }
+
+    }
+
+    public function logout()
+    {
+        $auth = resolve('littlegatekeeper');
+
+        if($auth->isAuthenticated())
+        {
+            $auth->logout();
+            return redirect('/login');
+        }
+
+        return redirect('/login');;
     }
 }

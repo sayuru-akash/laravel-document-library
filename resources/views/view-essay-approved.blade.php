@@ -8,9 +8,8 @@
       }
     </style>
     <meta charset="utf-8" />
-    <title>sitc</title>
+    <title>SITC Digital Library</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Webflow" name="generator" />
     <link href="{{ asset('css/home.css') }}" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9
       ]><script
@@ -18,6 +17,9 @@
         type="text/javascript"
       ></script
     ><![endif]-->
+    <link rel="icon" href="https://sitc.lk/wp-content/uploads/2021/11/cropped-cropped-photo_2021-11-23_18-40-47-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://sitc.lk/wp-content/uploads/2021/11/cropped-cropped-photo_2021-11-23_18-40-47-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://sitc.lk/wp-content/uploads/2021/11/cropped-cropped-photo_2021-11-23_18-40-47-180x180.png">
     <script type="text/javascript">
       !(function (o, c) {
         var n = c.documentElement,
@@ -28,19 +30,11 @@
             (n.className += t + "touch");
       })(window, document);
     </script>
-    <link
-      href="#"
-      rel="shortcut icon"
-      type="image/x-icon"
-    />
-    <link
-      href="#"
-      rel="apple-touch-icon"
-    />
   </head>
   <body>
     <div class="section wf-section">
       <div class="container w-container">
+      <a href="../">
         <img
           src="{{ asset('images/621cbcc617ee437d60b1c2e9_photo_2021-11-23_18-40-47.png') }}"
           loading="lazy"
@@ -53,6 +47,7 @@
           class="image"
           width="150"
         />
+      </a>
       </div>
     </div>
     <div class="section-2 wf-section">
@@ -76,20 +71,22 @@
                   sizes="(max-width: 479px) 268px, (max-width: 767px) 248px, (max-width: 991px) 228px, 288px"
                   alt=""
                   class="image-2"
-                  width="300"
+                  width="280px"
+                  height="280px"
+                  style = "object-fit: cover;"
                 />
                 <h2 class="title">
                   {{ $essay->project_name }}
                 </h2>
                 <h3 class="heading-2">{{ $essay->student_name }}&nbsp;&nbsp;-&nbsp;&nbsp;{{ $essay->student_id }}</h3>
-                <a href="#" class="button w-button">Read Here</a>
+                <a href="./view-document/{{ $essay->id }}" class="button w-button">Read Here</a>
               </div>
             @endforeach
             </div>
           </div>
           <div class="column-2 w-col w-col-4 w-col-stack w-col-tiny-tiny-stack">
-            <a href="#" class="button addafile w-button">Publish Your Project</a
-            ><a href="#" class="button addafile _2 w-button"
+            <a href="../add-document/" class="button addafile w-button">Publish Your Project</a
+            ><a href="https://youtu.be/merAXmyQ9Zs" class="button addafile _2 w-button"
               >How To Publish Your Project</a
             ><img
               src="sitc_files/621ce67100297d78f3a155fa_photo_2022-02-28_18-49-20.jpg"
@@ -140,15 +137,14 @@
           </div>
           <div class="column-5 w-col w-col-4 w-col-tiny-tiny-stack">
             <ul role="list" class="w-list-unstyled">
-              <li class="list-item">Home</li>
-              <li class="list-item">Privacy Policy</li>
-              <li class="list-item-2">Terms And Condition</li>
+              <a href="../"><li class="list-item">Home</li></a>
+              <a href="https://sitc.lk/privacy-policy/"><li class="list-item">Privacy Policy</li></a>
             </ul>
           </div>
           <div class="column-3 w-col w-col-4 w-col-tiny-tiny-stack">
-            <a href="#" class="social w-button"><i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;&nbsp;Facebook</a
-            ><a href="#" class="social w-button"
-              ><i class="fas fa-heart"></i>&nbsp;&nbsp;&nbsp;Instagram</a
+            <a href="https://www.facebook.com/sitc.campus/" style="width:100%; text-align:center;" class="social w-button"><i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;&nbsp;Facebook</a
+            ><a href="https://www.youtube.com/channel/UCLatD85fttdOLDxFJnCbXyQ" style="width:100%; text-align:center;" class="social w-button"
+              ><i class="fas fa-heart"></i>&nbsp;&nbsp;&nbsp;Youtube</a
             >
           </div>
         </div>
