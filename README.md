@@ -21,7 +21,7 @@
   <p align="center">
     An e-library website to display approved documents for Institutes, made with Laravel.
     <br />
-    <a href="https://github.com/sayuru-akash/laravel-document-library"><strong>Explore the project »</strong></a>
+    <a href="https://github.com/sayuru-akash/laravel-document-library/"><strong>Explore the project »</strong></a>
     <br />
   </p>
 </div>
