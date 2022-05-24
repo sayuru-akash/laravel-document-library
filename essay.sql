@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2022 at 11:47 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: May 23, 2022 at 09:10 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,10 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `essays` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `stdid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `essay` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `isapproved` tinyint(1) NOT NULL,
+  `project_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `student_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `student_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `post_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.jpg',
+  `post_thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.jpg',
+  `isapproved` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -41,9 +44,10 @@ CREATE TABLE `essays` (
 -- Dumping data for table `essays`
 --
 
-INSERT INTO `essays` (`id`, `stdid`, `name`, `essay`, `isapproved`, `created_at`, `updated_at`) VALUES
-(2, '12345', 'pasindu', 'tgdnhdejdxfy,rkl7,l7fx', 1, '2022-01-31 06:06:24', '2022-01-31 06:06:24'),
-(5, '78', 'issa', 'ATTEMPT, TRY, ENDEAVOR, ESSAY, STRIVE mean to make an effort to accomplish an end. ATTEMPT stresses the initiation or beginning of an effort.  will attempt to photograph the rare bird  TRY is often close to ATTEMPT but may stress effort or experiment made in the hope of testing or proving something.  tried to determine which was the better procedure  ENDEAVOR heightens the implications of exertion and difficulty.  endeavored to find crash survivors in the mountains  ESSAY implies difficulty but also suggests tentative trying or experimenting.  will essay a dramatic role for the first time  STRIVE implies great exertion against great difficulty and specifically suggests persistent effort.  continues to strive for peace', 1, '2022-01-31 23:00:41', '2022-02-01 01:54:27');
+INSERT INTO `essays` (`id`, `project_name`, `student_id`, `student_name`, `file_code`, `post_image`, `post_thumbnail`, `isapproved`, `created_at`, `updated_at`) VALUES
+(1, 'rgtrht', 'hytjuyt', 'juhyjy7u', 'uj7ytuj', 'post images\\2022-03-06 18-23-20 2022-03-06 18-23-20 Screenshot 2022-03-02 015053 thumb.png.png', '2022-03-06 18-23-20 Screenshot 2022-03-02 015053 thumb.png', 0, '2022-03-06 12:53:21', '2022-03-06 12:53:21'),
+(2, 'Issa Project', '12345', 'Issa', '1z6HV2BOPpKMDF5319sB6xRYJsd1V4yx3', 'post images\\2022-03-12 13-25-21 2022-03-12 13-25-21 fbe3bf thumb.png.png', '2022-03-12 13-25-21 fbe3bf thumb.png', 1, '2022-03-12 07:55:21', '2022-03-12 07:58:21'),
+(3, 'rfhgfd', 'tghthrtrh', 'hbtghtyr', 'rfdhgtrhtry', 'post images\\2022-03-12 18-20-26 2022-03-12 18-20-26 color box thumb.jpg.jpg', '2022-03-12 18-20-26 color box thumb.jpg', 0, '2022-03-12 12:50:26', '2022-03-12 12:50:26');
 
 -- --------------------------------------------------------
 
@@ -78,11 +82,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_01_31_043747_create_essays_table', 1);
+(41, '2014_10_12_000000_create_users_table', 1),
+(42, '2014_10_12_100000_create_password_resets_table', 1),
+(43, '2019_08_19_000000_create_failed_jobs_table', 1),
+(44, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(45, '2022_01_31_043747_create_essays_table', 1);
 
 -- --------------------------------------------------------
 
@@ -183,7 +187,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `essays`
 --
 ALTER TABLE `essays`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -195,7 +199,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
